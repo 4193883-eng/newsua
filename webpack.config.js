@@ -1,26 +1,28 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const cssImportLoader =
-  process.env.NODE_ENV === 'production'
+  process.env.NODE_ENV === "production"
     ? MiniCssExtractPlugin.loader
-    : 'style-loader';
+    : "style-loader";
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   entry: {
-    index: './src/index.js',
+    index: "./src/index.js",
+    newspage: "./src/newspage.js",
+    admin: "./src/admin.js",
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist"),
     clean: true,
   },
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   devServer: {
-    static: './dist',
+    static: "./dist",
     hot: false,
   },
   module: {
@@ -28,26 +30,26 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
         options: {
-          presets: ['@babel/preset-env'],
+          presets: ["@babel/preset-env"],
         },
       },
       {
         test: /\.css$/,
-        use: [cssImportLoader, 'css-loader'],
+        use: [cssImportLoader, "css-loader"],
       },
       {
         test: /\.(scss|sass)$/,
-        use: [cssImportLoader, 'css-loader', 'sass-loader'],
+        use: [cssImportLoader, "css-loader", "sass-loader"],
       },
       {
         test: /\.(png|jpg|jpeg|svg|txt)$/,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
       {
         test: /\.(hbs|handlebars)$/,
-        loader: 'handlebars-loader',
+        loader: "handlebars-loader",
       },
     ],
   },
@@ -55,17 +57,27 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/assets',
-          to: 'assets',
+          from: "src/assets",
+          to: "assets",
           noErrorOnMissing: true,
         },
       ],
     }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/index.hbs',
-      chunks: ['index'],
-      filename: 'index.html',
+      template: "./src/index.hbs",
+      chunks: ["index"],
+      filename: "index.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/newspage.hbs",
+      chunks: ["newspage"],
+      filename: "newspage.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/admin.hbs",
+      chunks: ["admin"],
+      filename: "admin.html",
     }),
   ],
 };

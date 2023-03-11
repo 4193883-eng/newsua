@@ -1,12 +1,9 @@
 import $ from "jquery";
 
-window.jQuery = $
-window.jquery = $
-window.$ = $
+import 'slick-slider';
 
-import './slick/slick.min'
-import './slick/slick.scss'
 import './slick/slick-theme.scss'
+
 // core version + navigation, pagination modules:
 // import Swiper, { Navigation, Pagination } from 'swiper';
 // import Swiper and modules styles
@@ -36,15 +33,27 @@ import slide from './partials/slide.hbs';
 
 let sliderDiv = $('.slider');
 
-sliderDiv.slick({
+$('.slider').slick({
     arrows: true,
     dots: true,
+    vertical: false,
 })
 
-// sliderDiv.slickAdd(slide({
-//     views: 1233,
-//     id: 'a1',
-//     storyName: 'Lorem ipsum',
-//     tags: ['tag1', 'tag2'],
-//     timeago: '3 hours'
-// }))
+console.log($('.slider').slick)
+
+//TODO figure out why ↓ doesn't work
+
+$('.slider').slick('slickAdd',slide({
+    views: 1233,
+    id: 'a1',
+    storyName: 'Lorem ipsum',
+    tags: ['tag1', 'tag2'],
+    timeago: '3 hours'
+}))
+$('.slider').slick('slickAdd',slide({
+    views: 1233,
+    id: 'a1',
+    storyName: 'Lorem ipsum',
+    tags: ['tag1', 'tag2'],
+    timeago: '3 hours'
+}))

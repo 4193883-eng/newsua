@@ -1,59 +1,41 @@
-import $ from "jquery";
-
-import 'slick-slider';
-
-import './slick/slick-theme.scss'
-
-// core version + navigation, pagination modules:
-// import Swiper, { Navigation, Pagination } from 'swiper';
-// import Swiper and modules styles
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-
+import './glider/glider.min.css'
+import './glider/glider'
 import './styles/index.scss';
 
 import slide from './partials/slide.hbs';
-// init Swiper:
-// const swiper = new Swiper('.swiper', {
-//     // configure Swiper to use modules
-//     modules: [Navigation, Pagination],
-//     navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-//     },
-//     pagination: {
-//         el: '.swiper-pagination',
-//         clickable:true,
-//     },
-//     loop:true,
-// });
 
 //views = 123 id = 1 storyName = 'UFO Spoted on ground' tags = 'hello' timeago = '3 hours'
 
-let sliderDiv = $('.slider');
+let sliderDiv = document.querySelector('.glider');
 
-$('.slider').slick({
-    arrows: true,
-    dots: true,
-    vertical: false,
-})
-
-console.log($('.slider').slick)
-
-//TODO figure out why ↓ doesn't work
-
-$('.slider').slick('slickAdd',slide({
-    views: 1233,
-    id: 'a1',
-    storyName: 'Lorem ipsum',
-    tags: ['tag1', 'tag2'],
-    timeago: '3 hours'
+sliderDiv.insertAdjacentHTML('beforeend', slide({
+    views:123,
+    id:1,
+    storyName:'sddfs',
+    tags:['hello', 'world'],
+    timeago:'hello'
 }))
-$('.slider').slick('slickAdd',slide({
-    views: 1233,
-    id: 'a1',
-    storyName: 'Lorem ipsum',
-    tags: ['tag1', 'tag2'],
-    timeago: '3 hours'
+sliderDiv.insertAdjacentHTML('beforeend', slide({
+    views:123,
+    id:1,
+    storyName:'sddfs',
+    tags:['hello', 'world'],
+    timeago:'hello'
 }))
+sliderDiv.insertAdjacentHTML('beforeend', slide({
+    views:123,
+    id:1,
+    storyName:'sddfs',
+    tags:['hello', 'world'],
+    timeago:'hello'
+}))
+
+
+let slider = new Glider(document.querySelector('.glider'), {
+    draggable:true,
+    dots: '.dots',
+    arrows: {
+        prev: '.glider-prev',
+        next: '.glider-next'
+    }
+});

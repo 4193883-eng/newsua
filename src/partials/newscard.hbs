@@ -1,11 +1,12 @@
-<div class="card">
-  <img src="../assets/soldier.jpg" alt="солдат" class="card__image">
+<li class="card__item">
+  <img src="{{thumbnailUrl}}" alt="прев'ю новини" class="card__image">
   <div class="card__content">
-    <h2 class="card__title">Title: Інопланетяни викрали корову Ромашку</h2>
-    <p class="card__description">Свідок Андрій бачив усе на власні очі! Його коментар: “Я сі був йшов, виджу, як ”</p>
+    <h2 class="card__title">{{title}}</h2>
+    <p class="card__date">{{createdAt}}</p>
+    <p class="card__description">{{body}}</p>
     <div class="card__container">
-      <p class="card__views">420 views</p>
-      <p class="card__author">Якийсь автор</p>
+      <p class="card__views">{{views}} views</p>
+      <p class="card__author">{{author}}</p>
     </div>
-  </div >
-</div>
+  </div>
+</li>

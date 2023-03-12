@@ -1,18 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-body{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+body {
     margin: 0px;
     display: block;
 }
-.navbar{
+
+.navbar {
     width: 100%;
     height: 75px;
     display: flex;
     background: linear-gradient(90deg, #BED0D4 51.1%, #C5D7D4 63.46%);
     box-shadow: 0px 4px 4px 5px rgba(0, 0, 0, 0.1);
     align-items: center;
-    padding:0 10px;
+    padding: 0 10px;
 }
-.nav_logo{
+
+.nav_logo {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 300;
@@ -23,19 +26,22 @@ body{
     margin: 0;
     flex-shrink: 0;
 }
-.logo_first_letter{
+
+.logo_first_letter {
     color: #46A3FF;
 }
-.logo_second_letter{
+
+.logo_second_letter {
     color: #FFF9A5;
 }
 
-.navbar_text{
+.navbar_text {
     list-style: none;
     display: flex;
     gap: 17px;
 }
-.nav_h2Text{
+
+.nav_h2Text {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 300;
@@ -43,12 +49,13 @@ body{
     line-height: 30px;
     color: rgba(0, 0, 0, 0.75);
 }
-.search_navbar{
+
+.search_navbar {
     margin-left: auto;
     position: relative;
 }
 
-.search_input{
+.search_input {
     border-radius: 19px;
     border: none;
     padding: 7px 15px;
@@ -56,10 +63,14 @@ body{
     font-style: normal;
     font-size: 16px;
 }
-.search_input::placeholder,.search_input::-moz-placeholder,.search_input::-webkit-input-placeholder{
+
+.search_input::placeholder,
+.search_input::-moz-placeholder,
+.search_input::-webkit-input-placeholder {
     color: #000000;
 }
-.search_button{
+
+.search_button {
     top: 50%;
     transform: translateY(-50%);
     right: 8px;
@@ -67,11 +78,72 @@ body{
     background: none;
     border: none;
 }
-.navBar_menu{
+
+.navBar_menu {
     display: flex;
     align-items: center;
     width: 100%;
 }
-@media (max-width: 720px) {
+
+.nav_h2Text img {
+    display: none;
 }
 
+.nav_bars {
+    display: none;
+}
+
+@media (max-width: 720px) {
+    .navBar_menu {
+        top: 75px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
+        background-color: #E0ECEE;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-right: 50px;
+        padding-bottom: 20px;
+    }
+
+    .navbar_text {
+        flex-direction: column;
+        margin-left: auto;
+    }
+
+    .nav_h2Text {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+    }
+
+    .search_input {
+        width: 400px;
+        height: 37px;
+    }
+
+    .search_navbar {
+        margin-left: 0;
+    }
+  
+    .nav_h2Text {
+        position: relative;
+    }
+
+    .nav_h2Text img {
+        position: absolute;
+        width: 35px;
+        height: 25px;
+        left: -40px;
+        top: 2px;
+        display: block;
+    }
+
+    .nav_bars {
+        height: 60px;
+        margin-left: auto;
+        display: block;
+    }
+
+}

@@ -1,8 +1,6 @@
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{>partials/meta title="News Admin"}}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,6 +21,8 @@
           </button>
         </div>
         <table class="table-main">
+
+          <thead id="thead" class="thead">
           <tr class="table-row-title">
             <th class="table-heading-text"><p class="border-right">ID</p></th>
             <th class="table-heading-text">Title</th>
@@ -32,75 +32,10 @@
             <th class="table-heading-text">Author</th>
             <th class="table-heading-text">Options</th>
           </tr>
-          <tr class="table-row-data">
-            <td class="table-data-text"><p class="border-right">1</p></td>
-            <td class="table-data-text">Інопланетяни...</td>
-            <td class="table-data-text">test_0.png</td>
-            <td class="table-data-text">1234</td>
-            <td class="table-data-text"><p class="full-text-data">Тестовий
-                повний текст</p></td>
-            <td class="table-data-text">Author</td>
-            <td class="table-data-text table-data-flex">
-              <img
-                style="text-align: center;"
-                src="./assets/edit-icon.svg"
-                class="edit-icon"
-                alt="edit-icon"
-              />
-              <img
-                style="text-align: center;"
-                src="./assets/delete-icon.svg"
-                alt="delete-icon"
-                class="delete-icon"
-              />
-            </td>
-          </tr>
-          <tr class="table-row-data">
-            <td class="table-data-text"><p class="border-right">1</p></td>
-            <td class="table-data-text">Інопланетяни...</td>
-            <td class="table-data-text">test_0.png</td>
-            <td class="table-data-text">1234</td>
-            <td class="table-data-text"><p class="full-text-data">Тестовий
-                повний текст</p></td>
-            <td class="table-data-text">Author</td>
-            <td class="table-data-text table-data-flex">
-              <img
-                style="text-align: center;"
-                src="./assets/edit-icon.svg"
-                class="edit-icon"
-                alt="edit-icon"
-              />
-              <img
-                style="text-align: center;"
-                src="./assets/delete-icon.svg"
-                alt="delete-icon"
-                class="delete-icon"
-              />
-            </td>
-          </tr>
-          <tr class="table-row-data">
-            <td class="table-data-text"><p class="border-right">1</p></td>
-            <td class="table-data-text">Інопланетяни...</td>
-            <td class="table-data-text">test_0.png</td>
-            <td class="table-data-text">1234</td>
-            <td class="table-data-text"><p class="full-text-data">Тестовий
-                повний текст</p></td>
-            <td class="table-data-text">Author</td>
-            <td class="table-data-text table-data-flex">
-              <img
-                style="text-align: center;"
-                src="./assets/edit-icon.svg"
-                class="edit-icon"
-                alt="edit-icon"
-              />
-              <img
-                style="text-align: center;"
-                src="./assets/delete-icon.svg"
-                alt="delete-icon"
-                class="delete-icon"
-              />
-            </td>
-          </tr>
+          </thead>
+          <tbody id="tbody" class="tbody">
+            
+          </tbody>          
         </table>
       </div>
     </div>

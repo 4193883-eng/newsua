@@ -1,57 +1,46 @@
-// Vars
+const fetchUrl = 'https://my-json-server.typicode.com/olehhapuk/news_ua_db/posts/';
 
-const modalRefs = {
-  modals: document.querySelectorAll('.modal'),
-  modalTogglers: document.querySelectorAll('#modalToggler'),
-};
-
-let activeModal = null;
+export let activeModal = null;
+const body = document.body;
 
 // Functions
-
-function findModal(id) {
-  return document.querySelector(`#${id}`);
+export function openModal(modalRef) {
+  activeModal = modalRef;
+  activeModal.classList.add('is-active');
+  body.classList.add('is-fixed');
 }
 
-function openModal(modal) {
-  activeModal = modal;
-  activeModal.classList.add('active');
-}
-
-function closeModal() {
+export function closeModal() {
   if (activeModal !== null) {
-    activeModal.classList.remove('active');
+    activeModal.classList.remove('is-active');
     activeModal = null;
+    body.classList.remove('is-fixed');
   }
 }
 
-// Event listeners
+// Запит по айді
+export function fetchById(targetId, modalRef) {
+  fetch(`https://my-json-server.typicode.com/olehhapuk/news_ua_db/posts/${targetId}`)
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      // Відкриття модалки
+      openModal(modalRef);
 
-modalRefs.modalTogglers.forEach((modalToggler) => {
-  modalToggler.addEventListener('click', (e) => {
-    // Open modal
-    const togglerId = e.target.dataset.target;
-    const modal = findModal(togglerId);
-    openModal(modal);
-
-    // Close modal click on closeModalBtn
-    const closeModalBtn = modal.querySelector('#closeModalBtn');
-    closeModalBtn.addEventListener('click', (e) => {
-      closeModal();
+      modalRef.querySelector('[name="title"]').value = data.title;
+      modalRef.querySelector('[name="body"]').value = data.body;
+      modalRef.querySelector('[name="thumbnailUrl"]').value = data.thumbnailUrl;
+      modalRef.querySelector('.form-modal__image').value = data.thumbnailUrl;
     });
 
-    // Close modal by click on background
-    modal.addEventListener('click', (e) => {
-      if (e.target === e.currentTarget) {
-        closeModal();
-      }
-    });
-  });
-});
-
-// Close modal by press Escape
-window.addEventListener('keyup', (e) => {
-  if (e.code === 'Escape' && activeModal !== null) {
+  // Закриття модалки
+  modalRef.closeEditModalBtn.addEventListener('click', () => {
     closeModal();
-  }
-});
+
+    modalRef.querySelector('[name="title"]').value = '';
+    modalRef.querySelector('[name="body"]').value = '';
+    modalRef.querySelector('[name="thumbnailUrl"]').value = '';
+    modalRef.querySelector('.form-modal__image').value = '';
+  });
+}

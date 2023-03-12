@@ -1,5 +1,6 @@
 .modal {
   position: fixed;
+  z-index: 50;
   top: 0;
   left: 0;
   width: 100%;
@@ -8,14 +9,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
   padding: 5px 15px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
   overflow: hidden;
 
-  &.active {
+  &.is-active {
     opacity: 1;
     visibility: visible;
   }
@@ -37,6 +38,10 @@
     &::-webkit-scrollbar-thumb {
       border-radius: 15px;
       background-color: rgba(0, 0, 0, 0.6);
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
     }
 
     @media (max-width: 767.98px) {
@@ -117,9 +122,23 @@
     }
 
     &_textarea {
-      resize: vertical;
-      min-height: 130px;
-      max-height: 400px;
+      resize: none;
+      min-height: 200px;
+      // max-height: 400px;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 15px;
+        background-color: rgba(0, 0, 0, 0.6);
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.7);
+        }
+      }
     }
   }
 

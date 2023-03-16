@@ -1,7 +1,7 @@
 import './styles/newscard.scss';
 import newscard from './partials/newscard.hbs';
 
-let url = "https://my-json-server.typicode.com/olehhapuk/news_ua_db/posts";
+let url = "https://news-ua-api.onrender.com/api/posts";
 const refs = {
   cardList: document.querySelector('.card__list'),
 };
@@ -9,9 +9,10 @@ const refs = {
 fetch(url)
   .then(response => response.json())
   .then(data => {
-    data.forEach(description => description.body = cutText(description.body));
-    data.forEach(date => date.createdAt = formatDate(date.createdAt));
-    renderNewsCard(data);
+    const news = data.items;
+    news.forEach(newsDesc => newsDesc.body = cutText(newsDesc.body));
+    news.forEach(newsDate => newsDate.createdAt = formatDate(newsDate.createdAt));
+    renderNewsCard(news);
   })
   .catch(error => console.error(error));
 

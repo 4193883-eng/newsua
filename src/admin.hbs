@@ -1,11 +1,44 @@
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{>partials/meta title="News Admin"}}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
     <title>Admin Page</title>
   </head>
   <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="button-main">
+          <button class="create-news">
+            <p class="create-news-text">
+              Створити новину
+            </p>
+            <img src="./assets/create-icon.svg" alt="create-icon" />
+          </button>
+        </div>
+        <table class="table-main">
 
+          <thead id="thead" class="thead">
+          <tr class="table-row-title">
+            <th class="table-heading-text"><p class="border-right">ID</p></th>
+            <th class="table-heading-text">Title</th>
+            <th class="table-heading-text">Photo</th>
+            <th class="table-heading-text">Views</th>
+            <th class="table-heading-text">Full Text</th>
+            <th class="table-heading-text">Author</th>
+            <th class="table-heading-text">Options</th>
+          </tr>
+          </thead>
+          <tbody id="tbody" class="tbody">
+            
+          </tbody>          
+        </table>
+      </div>
+    </div>
+    <script src="admin.js"></script>
   </body>
 </html>

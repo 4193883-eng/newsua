@@ -1,0 +1,49 @@
+<div class='modal' id='addModal'>
+  <div class='modal__body'>
+    <button class='modal__close-btn' type='button' id='closeModalBtn'>
+      <img src='../assets/images/cross.svg' alt='cross' />
+    </button>
+    <h2 class='modal__title'>Add information</h2>
+
+    <form class='modal__content form-modal' id='addModalForm'>
+
+      <div class='form-modal__elements'>
+        <h3 class='form-modal__title'>Title</h3>
+        <input
+          type='text'
+          class='form-modal__input'
+          autocomplete='off'
+          placeholder='Change title'
+          name='title'
+          id='titleInput'
+        />
+      </div>
+
+      <div class='form-modal__elements'>
+        <h3 class='form-modal__title'>Full text</h3>
+        <textarea
+          class='form-modal__input form-modal__input_textarea'
+          autocomplete='off'
+          placeholder='Change text'
+          name='body'
+          id='bodyTextarea'
+        ></textarea>
+      </div>
+
+      <div class='form-modal__elements'>
+        <h3 class='form-modal__title'>Image</h3>
+        <img src='' alt='testAlt' class='form-modal__image' />
+        <input
+          type='text'
+          class='form-modal__input'
+          autocomplete='off'
+          placeholder='Change url'
+          name='thumbnailUrl'
+          id='urlInput'
+        />
+      </div>
+
+      <button type='submit' class='form-modal__submit-btn'>Add</button>
+    </form>
+  </div>
+</div>

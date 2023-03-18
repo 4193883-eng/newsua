@@ -7,6 +7,7 @@
   position: relative;
   margin-left: auto;
   width: 19rem;
+  margin-top: 20px;
 }
 
 .share {
@@ -45,9 +46,11 @@
     color: #fff;
     font-size: 16px;
   }
-  .donate-button {
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
+  .img-flex {
+    display: block;
+    width: 100%;
+  }
+  .donate-button-link {
     margin-left: 1rem;
     margin-bottom: 1rem;
     padding: 0.3rem 1rem;
@@ -57,12 +60,16 @@
     width: 45%;
     height: 13%;
     background-color: #46a3ff;
-    color: #fff;
     border: none;
     border-radius: 10px;
-  }
-  .img-flex {
-    display: block;
-    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    padding-top: 12px;
+    &:hover {
+      background-color: #2586e8;
+      transition: 0.2s;
+    }
   }
 }

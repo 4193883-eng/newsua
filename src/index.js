@@ -1,3 +1,4 @@
+import './newscard.js';
 import './glider/glider.min.css'
 import './glider/glider'
 import './styles/index.scss';

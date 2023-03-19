@@ -23,9 +23,13 @@ li {
   margin-right: auto;
   position: relative;
   padding: 0 0px;
+  margin-top: 10px;
 }
 
 .prev_content {
+  @media screen and (max-width: 750px) {
+    width: 100%;
+  }
   position: absolute;
   bottom: 0;
   width: 98%;
@@ -86,6 +90,9 @@ li {
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+  }
 }
 
 .text--info {

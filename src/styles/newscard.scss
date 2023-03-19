@@ -11,6 +11,7 @@ li {
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+  padding: 0;
 }
 
 .card__item {
@@ -42,13 +43,14 @@ li {
   text-decoration: underline;
 }
 
-.card__title {
+.card__title > a{
   letter-spacing: 0.03em;
   margin-bottom: 10px;
   font-size: 18px;
   font-weight: 500;
   line-height: 21px;
   color: #000;
+  text-decoration: none;
 }
 
 .card__date {

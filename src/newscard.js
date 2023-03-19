@@ -26,7 +26,7 @@ function cutText(text) {
   return shortText + '...';
 }
 
-function formatDate(date) {
+export function formatDate(date) {
   const diff = new Date() - new Date(date);
   if (diff < 1000) {
     return 'right now';

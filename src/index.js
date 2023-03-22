@@ -13,7 +13,7 @@ import slide from './partials/slide.hbs';
 for(let i = 0; i < 10; i++ ) {
     addSlide(123, 12, 'Hello', ['hello', 'world'], '3 hours', slide)
 }
-document.querySelector('.nav_bars').addEventListener('click', () => {
+document.querySelector('.navbar_hamburger').addEventListener('click', () => {
     toggleMenu()
 })
 

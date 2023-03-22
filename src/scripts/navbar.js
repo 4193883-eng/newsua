@@ -1,3 +1,3 @@
 export function toggleMenu(){
-    document.querySelector('.navBar_menu').classList.toggle('menuActive')
+    document.querySelector('.navbar_menu').classList.toggle('menuActive')
 }

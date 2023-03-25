@@ -4,8 +4,13 @@ import "./styles/footer.scss";
 import "./styles/navbar.scss";
 import axios from "axios";
 
+const searchParam = new URLSearchParams(location.search);
+console.log(searchParam.get("id"));
+
+const pageId = searchParam.get("id");
+
 axios
-  .get("https://news-ua-api.onrender.com/api/posts/640c5a76ca86c0d14fbf13fe")
+  .get(`https://news-ua-api.onrender.com/api/posts/${pageId}`)
   .then((res) => {
     const items = {
       bgimg: document.querySelector(".prev"),

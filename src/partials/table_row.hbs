@@ -6,17 +6,21 @@
   <td class="table-data-text"><p class="full-text-data">{{body}}</p></td>
   <td class="table-data-text">{{author}}</td>
   <td class="table-data-text table-data-flex">
-    <img
-      style="text-align: center;"
-      src="./assets/edit-icon.svg"
-      class="edit-icon"
-      alt="edit-icon"
-    />
-    <img
-      style="text-align: center;"
-      src="./assets/delete-icon.svg"
-      alt="delete-icon"
-      class="delete-icon"
-    />
+    <button class="editBtn optionsBtn" type="button" data-id="{{id}}">
+      <img
+        style="text-align: center;"
+        src="./assets/edit-icon.svg"
+        class="edit-icon"
+        alt="edit-icon"
+      />
+    </button>
+    <button class="deleteBtn optionsBtn" type="button" data-id="{{id}}">
+      <img
+        style="text-align: center;"
+        src="./assets/delete-icon.svg"
+        alt="delete-icon"
+        class="delete-icon"
+      />
+    </button>
   </td>
 </tr>

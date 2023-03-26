@@ -9,16 +9,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 5px 15px;
-  opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
-  overflow: hidden;
+  opacity: 0;
 
   &.is-active {
     opacity: 1;
     visibility: visible;
+  }
+
+  &.transition {
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
   }
 
   &__body {

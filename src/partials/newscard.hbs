@@ -1,12 +1,14 @@
 <li class="card__item">
-  <img src="{{thumbnailUrl}}" alt="прев'ю новини" class="card__image">
-  <div class="card__content">
-    <h2 class="card__title"><a href="/newspage.html?id={{id}}">{{title}}</a></h2>
-    <p class="card__date">{{createdAt}}</p>
-    <p class="card__description">{{body}}</p>
-    <div class="card__container">
-      <p class="card__views">{{views}} views</p>
-      <p class="card__author">{{author}}</p>
+  <a href="/newspage.html?id={{id}}" class="card-link">
+    <img src="{{thumbnailUrl}}" alt="прев'ю новини" class="card__image" />
+    <div class="card__content">
+      <h2 class="card__title">{{title}}</h2>
+      <p class="card__date">{{createdAt}}</p>
+      <p class="card__description">{{body}}</p>
+      <div class="card__container">
+        <p class="card__views">{{views}} views</p>
+        <p class="card__author">{{author}}</p>
+      </div>
     </div>
-  </div>
+  </a>
 </li>

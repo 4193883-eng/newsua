@@ -1,6 +1,7 @@
-// body {
-//   background-color: beige;
-// }
+*{
+  padding: 0;
+  margin: 0;
+}
 
 li {
   list-style: none;
@@ -8,27 +9,13 @@ li {
 
 .card__list {
   display: flex;
-  justify-content: center;
+  justify-content:center ;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 0;
+  margin-top: 20px; 
 }
 
-.card__item {
-  background-color: white;
-  width: min(100%, 370px);
-  transition: 300ms;
 
-  * {
-    padding: 0;
-    margin: 0;
-  }
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: 0px 5px 10px 2px #00000040;
-  }
-}
 .card__content {
   padding: 10px;
 }
@@ -38,12 +25,16 @@ li {
   width: 100%;
   object-fit: cover;
 }
-
-.card__item:hover .card__title {
-  text-decoration: underline;
+.card__item{
+  width: min(100%, 370px);
+  
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 5px 10px 2px #00000040;
+  }
 }
 
-.card__title > a{
+.card__title{
   letter-spacing: 0.03em;
   margin-bottom: 10px;
   font-size: 18px;
@@ -72,3 +63,10 @@ li {
   font-size: 14px;
   color: #86847E;
 }
+.card-link{
+  text-decoration: none;
+  background-color: white;
+  transition: 300ms;
+  display: block;
+}
+

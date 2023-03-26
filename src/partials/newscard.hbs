@@ -1,6 +1,8 @@
 <li class="card__item">
   <a href="/newspage.html?id={{id}}" class="card-link">
+    {{#if thumbnailUrl }}
     <img src="{{thumbnailUrl}}" alt="прев'ю новини" class="card__image" />
+    {{/if}}
     <div class="card__content">
       <h2 class="card__title">{{title}}</h2>
       <p class="card__date">{{createdAt}}</p>

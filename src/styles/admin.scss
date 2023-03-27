@@ -1,5 +1,5 @@
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -31,7 +31,7 @@ body {
 }
 
 .create-news-text {
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -74,7 +74,7 @@ body {
 .table-heading-text {
   padding-top: 26px;
   padding-bottom: 26px;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -96,7 +96,7 @@ body {
 // }
 
 .table-data-text {
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -143,4 +143,51 @@ body {
   background-color: #965e5ee1;
   border-radius: 16px;
   cursor: pointer;
+}
+
+.error-message {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 50;
+  background-color: #ff0033;
+  color: #fff;
+  max-width: 350px;
+  padding: 15px;
+  opacity: 0;
+  visibility: hidden;
+
+  &.is-error {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: #000;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 50;
+  transform: translate(-50%, -50%);
+  display: none;
+
+  &.is-loading {
+    display: inline-block;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

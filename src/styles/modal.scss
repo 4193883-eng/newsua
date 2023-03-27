@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   padding: 5px 15px;
   visibility: hidden;
   opacity: 0;
@@ -25,7 +25,7 @@
 
   &__body {
     max-width: 640px;
-    max-height: 90vh;
+    max-height: 85vh;
     padding: 40px 70px 20px;
     position: relative;
     overflow-y: scroll;
@@ -126,21 +126,6 @@
     &_textarea {
       resize: none;
       min-height: 200px;
-      // max-height: 400px;
-
-      &::-webkit-scrollbar {
-        width: 8px;
-        background-color: rgba(0, 0, 0, 0.2);
-        border-radius: 8px;
-      }
-      &::-webkit-scrollbar-thumb {
-        border-radius: 15px;
-        background-color: rgba(0, 0, 0, 0.6);
-
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.7);
-        }
-      }
     }
   }
 

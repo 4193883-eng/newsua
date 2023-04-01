@@ -8,6 +8,7 @@ import { activeModal, openModal, closeModal, fetchById } from './scripts/toggleM
 const editModal = document.querySelector('#editModal');
 const addModal = document.querySelector('#addModal');
 export const loader = document.querySelector('.loader');
+let isActiveTimeout = false;
 
 window.addEventListener('load', (e) => {
   editModal.classList.add('transition');
@@ -23,21 +24,7 @@ function fetchGet() {
     .then((res) => {
       loader.classList.remove('is-loading');
 
-      const tbody = document.getElementById('tbody');
-      tbody.innerHTML = '';
-
-      res.data.items.forEach((item) => {
-        const trimmedItem = {
-          ...item,
-          title: item.title.slice(0, 50),
-          thumbnailUrl: item.thumbnailUrl.slice(0, 50),
-          body: item.body.slice(0, 50),
-        };
-
-        const result = tableRow(trimmedItem);
-        tbody.insertAdjacentHTML('afterbegin', result);
-      });
-
+      loadTable(res);
       addNews();
       editNews();
       deleteNews();
@@ -103,6 +90,23 @@ function fetchDel(id) {
 
 // Functions
 
+function loadTable(res) {
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+
+  res.data.items.forEach((item) => {
+    const trimmedItem = {
+      ...item,
+      title: item.title.slice(0, 50),
+      thumbnailUrl: item.thumbnailUrl.slice(0, 50),
+      body: item.body.slice(0, 50),
+    };
+
+    const result = tableRow(trimmedItem);
+    tbody.insertAdjacentHTML('afterbegin', result);
+  });
+}
+
 function addNews() {
   const addBtn = document.querySelector('#addbtn');
   addBtn.addEventListener('click', () => {
@@ -112,6 +116,22 @@ function addNews() {
     closeAddBtn.addEventListener('click', () => {
       closeModal(addModal);
     });
+  });
+
+  const image = addModal.querySelector('.form-modal__image');
+  const urlInput = addModal.querySelector('[name="thumbnailUrl"]');
+  urlInput.addEventListener('input', () => {
+    if (urlInput.value === '') {
+      image.src = '';
+      return;
+    }
+
+    if (!checkURL(urlInput.value)) {
+      errorMessage('Невалідне посилання');
+    } else {
+      console.log('work');
+      image.src = urlInput.value;
+    }
   });
 
   const addForm = addModal.querySelector('.form-modal');
@@ -138,14 +158,23 @@ function editNews() {
     editBtn.addEventListener('click', () => {
       const targetId = editBtn.dataset.id;
       fetchById(targetId, editModal, editBtns);
-      loader.classList.add('is-loading');
     });
   });
 
   const image = editModal.querySelector('.form-modal__image');
   const urlInput = editModal.querySelector('[name="thumbnailUrl"]');
   urlInput.addEventListener('input', () => {
-    image.src = urlInput.value;
+    if (urlInput.value === '') {
+      image.src = '';
+      return;
+    }
+
+    if (!checkURL(urlInput.value)) {
+      errorMessage('Невалідне посилання');
+    } else {
+      console.log('work');
+      image.src = urlInput.value;
+    }
   });
 
   const editForm = editModal.querySelector('.form-modal');
@@ -158,7 +187,11 @@ function editNews() {
     const author = e.target.elements.author.value;
     const targetId = editForm.dataset.id;
 
-    fetchPut(targetId, title, body, author, thumbnailUrl);
+    if (title && body && author) {
+      fetchPut(targetId, title, body, author, thumbnailUrl);
+    } else {
+      errorMessage('Заповни пусті інпути');
+    }
   });
 }
 
@@ -174,14 +207,24 @@ function deleteNews() {
 }
 
 function errorMessage(message) {
+  if (isActiveTimeout) {
+    return;
+  }
   const error = document.querySelector('.error-message');
-  const errorMessage = error.querySelector('p');
 
-  errorMessage.innerText = message;
+  isActiveTimeout = true;
+  error.innerText = message;
   error.classList.add('is-error');
 
   setTimeout(() => {
     error.classList.remove('is-error');
-    errorMessage.innerText = '';
+    error.innerText = '';
+    isActiveTimeout = false;
   }, 5000);
+}
+
+function checkURL(url) {
+  var regURL =
+    /^(?:(?:https?|ftp|telnet):\/\/(?:[a-z0-9_-]{1,32}(?::[a-z0-9_-]{1,32})?@)?)?(?:(?:[a-z0-9-]{1,128}\.)+(?:com|net|org|mil|edu|arpa|ru|gov|biz|info|aero|inc|name|[a-z]{2})|(?!0)(?:(?!0[^.]|255)[0-9]{1,3}\.){3}(?!0|255)[0-9]{1,3})(?:\/[a-z0-9.,_@%&?+=\~\/-]*)?(?:#[^ \'\"&<>]*)?$/i;
+  return regURL.test(url);
 }

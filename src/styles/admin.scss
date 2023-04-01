@@ -2,6 +2,11 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
+
+  &.is-fixed {
+    position: fixed;
+    overflow-y: hidden;
+  }
 }
 
 .container {
@@ -153,7 +158,7 @@ body {
   background-color: #ff0033;
   color: #fff;
   max-width: 350px;
-  padding: 15px;
+  padding: 5px 10px;
   opacity: 0;
   visibility: hidden;
 
@@ -164,6 +169,7 @@ body {
 }
 
 .loader {
+  display: none;
   width: 48px;
   height: 48px;
   border: 5px solid #fff;
@@ -176,7 +182,6 @@ body {
   left: 50%;
   z-index: 50;
   transform: translate(-50%, -50%);
-  display: none;
 
   &.is-loading {
     display: inline-block;

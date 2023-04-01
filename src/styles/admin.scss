@@ -4,7 +4,6 @@ body {
   padding: 0;
 
   &.is-fixed {
-    position: fixed;
     overflow-y: hidden;
   }
 }
@@ -92,21 +91,12 @@ body {
   text-align: center;
 }
 
-// .table-row-title:nth-child(1) {
-//   padding-left: 30px;
-// }
-
-// .table-row-title:nth-last-child(1) {
-//   padding-right: 30px;
-// }
-
 .table-data-text {
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 22px;
-  /* identical to box height */
   color: #000000;
   text-align: center;
 }

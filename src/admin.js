@@ -2,7 +2,7 @@ import axios from 'axios';
 import './styles/modal.scss';
 import './styles/admin.scss';
 import tableRow from './partials/table_row.hbs';
-import { activeModal, openModal, closeModal, fetchById } from './scripts/toggleModal';
+import { openModal, closeModal, fetchById } from './scripts/toggleModal';
 
 // Vars
 const editModal = document.querySelector('#editModal');
@@ -97,14 +97,23 @@ function loadTable(res) {
   res.data.items.forEach((item) => {
     const trimmedItem = {
       ...item,
-      title: item.title.slice(0, 50),
-      thumbnailUrl: item.thumbnailUrl.slice(0, 50),
-      body: item.body.slice(0, 50),
+      shortId: slices(item.id, 10),
+      title: slices(item.title, 20),
+      thumbnailUrl: slices(item.thumbnailUrl, 10),
+      body: slices(item.body, 30),
     };
 
     const result = tableRow(trimmedItem);
     tbody.insertAdjacentHTML('afterbegin', result);
   });
+}
+
+function slices(item, length) {
+  if (item.length >= length) {
+    return item.slice(0, length) + '...';
+  } else {
+    return item;
+  }
 }
 
 function addNews() {
@@ -126,10 +135,10 @@ function addNews() {
       return;
     }
 
-    if (!checkURL(urlInput.value)) {
+    if (!checkURL(urlInput.value) && !checkDataUrl(urlInput.value)) {
       errorMessage('Невалідне посилання');
+      image.src = '';
     } else {
-      console.log('work');
       image.src = urlInput.value;
     }
   });
@@ -169,10 +178,10 @@ function editNews() {
       return;
     }
 
-    if (!checkURL(urlInput.value)) {
+    if (!checkURL(urlInput.value) && !checkDataUrl(urlInput.value)) {
       errorMessage('Невалідне посилання');
+      image.src = '';
     } else {
-      console.log('work');
       image.src = urlInput.value;
     }
   });
@@ -224,7 +233,9 @@ function errorMessage(message) {
 }
 
 function checkURL(url) {
-  var regURL =
-    /^(?:(?:https?|ftp|telnet):\/\/(?:[a-z0-9_-]{1,32}(?::[a-z0-9_-]{1,32})?@)?)?(?:(?:[a-z0-9-]{1,128}\.)+(?:com|net|org|mil|edu|arpa|ru|gov|biz|info|aero|inc|name|[a-z]{2})|(?!0)(?:(?!0[^.]|255)[0-9]{1,3}\.){3}(?!0|255)[0-9]{1,3})(?:\/[a-z0-9.,_@%&?+=\~\/-]*)?(?:#[^ \'\"&<>]*)?$/i;
-  return regURL.test(url);
+  return url.startsWith('http');
+}
+
+function checkDataUrl(url) {
+  return url.includes('data:image');
 }

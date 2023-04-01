@@ -26,4 +26,12 @@ axios
     items.views.innerHTML = `${page.views} views`;
     items.body.innerHTML = page.body;
     console.log(res.data.items);
+  })
+  .catch((err) => {
+    if (err.response) {
+      console.log(err.response.data);
+      console.log(err.response.status);
+    } else if (err.request) {
+      console.log(err.request);
+    }
   });

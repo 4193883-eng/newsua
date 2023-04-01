@@ -2,6 +2,7 @@ import "./styles/newspage.scss";
 import "./styles/ad.scss";
 import "./styles/footer.scss";
 import "./styles/navbar.scss";
+import "./scripts/ad";
 import axios from "axios";
 
 const searchParam = new URLSearchParams(location.search);

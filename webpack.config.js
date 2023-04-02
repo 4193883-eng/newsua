@@ -14,6 +14,7 @@ module.exports = {
     index: "./src/index.js",
     newspage: "./src/newspage.js",
     admin: "./src/admin.js",
+    about: "./src/about.js"
   },
   output: {
     filename: "[name].bundle.js",
@@ -78,6 +79,11 @@ module.exports = {
       template: "./src/admin.hbs",
       chunks: ["admin"],
       filename: "admin.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/about.hbs",
+      chunks: ["about"],
+      filename: "about.html",
     }),
   ],
 };

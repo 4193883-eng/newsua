@@ -13,7 +13,7 @@
     <div class="wrapper">
       <div class="container">
         <div class="button-main">
-          <button class="create-news">
+          <button id="addbtn" data-id="{{id}}" class="create-news">
             <p class="create-news-text">
               Створити новину
             </p>
@@ -39,6 +39,11 @@
         </table>
       </div>
     </div>
-    <script src="admin.js"></script>
+    {{>partials/edit_modal}}
+    {{>partials/add_modal}}
+
+    <div class="error-message"></div>
+
+    <span class="loader"></span>
   </body>
 </html>

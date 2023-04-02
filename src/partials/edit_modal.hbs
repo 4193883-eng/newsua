@@ -5,7 +5,7 @@
     </button>
     <h2 class='modal__title'>Сhange information</h2>
 
-    <form class='modal__content form-modal' id='editModalForm'>
+    <form class='modal__content form-modal' id='editModalForm' data-id='{{id}}'>
 
       <div class='form-modal__elements'>
         <h3 class='form-modal__title'>Title</h3>
@@ -32,9 +32,9 @@
 
       <div class='form-modal__elements'>
         <h3 class='form-modal__title'>Image</h3>
-        <img src='' alt='testAlt' class='form-modal__image' />
+        <img src='' alt='missing image' class='form-modal__image' />
         <input
-          type='text'
+          type='url'
           class='form-modal__input'
           autocomplete='off'
           placeholder='Change url'
@@ -43,7 +43,19 @@
         />
       </div>
 
-      <button type='submit' class='form-modal__submit-btn'>Change</button>
+      <div class='form-modal__elements'>
+        <h3 class='form-modal__title'>Author</h3>
+        <input
+          type='text'
+          class='form-modal__input'
+          autocomplete='off'
+          placeholder='{{author}}'
+          name='author'
+          id='authorInput'
+        />
+      </div>
+
+      <button type='submit' class='form-modal__submit-btn' id='editSubmitBtn'>Change</button>
     </form>
   </div>
 </div>

@@ -13,7 +13,7 @@
           type='text'
           class='form-modal__input'
           autocomplete='off'
-          placeholder='Change title'
+          placeholder='Add title'
           name='title'
           id='titleInput'
         />
@@ -24,7 +24,7 @@
         <textarea
           class='form-modal__input form-modal__input_textarea'
           autocomplete='off'
-          placeholder='Change text'
+          placeholder='Add text'
           name='body'
           id='bodyTextarea'
         ></textarea>
@@ -32,18 +32,29 @@
 
       <div class='form-modal__elements'>
         <h3 class='form-modal__title'>Image</h3>
-        <img src='' alt='testAlt' class='form-modal__image' />
+        <img src='' alt='missing image' class='form-modal__image' />
         <input
-          type='text'
+          type='url'
           class='form-modal__input'
           autocomplete='off'
-          placeholder='Change url'
+          placeholder='Add url'
           name='thumbnailUrl'
           id='urlInput'
         />
       </div>
+      <div class='form-modal__elements'>
+        <h3 class='form-modal__title'>Author</h3>
+        <input
+          type='text'
+          class='form-modal__input'
+          autocomplete='off'
+          placeholder='Add author'
+          name='author'
+          id='authorInput'
+        />
+      </div>
 
-      <button type='submit' class='form-modal__submit-btn'>Add</button>
+      <button type='submit' class='form-modal__submit-btn' id='addSubmitBtn'>Add</button>
     </form>
   </div>
 </div>

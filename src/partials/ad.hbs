@@ -1,35 +1,28 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advertisement</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="ad.scss" />
-  </head>
-  <body>
-    <div class="card-frame">
-      <div class="share">
-        <span class="share-text">Share it:</span>
-        <img src="/assets/facebook.svg" alt="facebook icon" class="icon" />
-        <img src="/assets/twitter.svg" alt="twitter icon" class="icon" />
-        <img src="/assets/link.svg" alt="facebook icon" class="icon" />
-        <img src="/assets/mail.svg" alt="twitter icon" class="icon" />
-      </div>
-      <article class="card">
-
-        <button class="donate-button">Donate now!</button>
-        <span class="card-label">Donate to worlds' defenders</span>
-        <img src="/assets/donate ad.png" alt="" class="img-flex" />
-      </article>
+<div id="fb-root"></div>
+<script
+  async
+  defer
+  crossorigin="anonymous"
+  src="https://connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v16.0"
+  nonce="RW41zUBl"
+></script>
+<div class="card-frame">
+  <div class="share">
+    <span class="share-text">Share it:</span>
+    <div class="icon fb-share-button" data-href="" data-layout="" data-size="">
     </div>
-  </body>
-</html>
+    <img src="/assets/link.svg" alt="link" class="icon link-icon" />
+    <a
+      href="mailto:test@example.com?subject=Переглянте нашу новину&body=<a href='ppolina0404@gmail.com'></a>"
+    >
+      <img src="/assets/mail.svg" alt="mail" class="icon" />
+    </a>
+
+  </div>
+  <article class="card">
+
+    <a href="#" class="donate-button-link">Donate now!</a>
+    <span class="card-label">Donate to worlds' defenders</span>
+    <img src="/assets/donate ad.png" alt="" class="img-flex" />
+  </article>
+</div>

@@ -12,7 +12,8 @@
 
 .share {
   display: flex;
-  padding-bottom: 1rem;
+  align-items: center;
+  padding-bottom: 0.2rem;
   .share-text {
     font-size: 20px;
     margin-right: 0.7rem;
@@ -20,12 +21,15 @@
   }
   .icon {
     height: 1.5rem;
-    margin-right: 0.6rem;
+    margin-right: 1rem;
     &:hover {
       position: relative;
       transition: 3ms;
       top: -3px;
     }
+  }
+  .fb-share-button {
+    padding-top: 0.1rem;
   }
 }
 

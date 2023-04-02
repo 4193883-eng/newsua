@@ -5,6 +5,8 @@ import "./styles/navbar.scss";
 import "./scripts/ad";
 import axios from "axios";
 
+const errorText = document.querySelector(".error");
+
 const searchParam = new URLSearchParams(location.search);
 console.log(searchParam.get("id"));
 
@@ -27,4 +29,7 @@ axios
     items.views.innerHTML = `${page.views} views`;
     items.body.innerHTML = page.body;
     console.log(res.data.items);
+  })
+  .catch((error) => {
+    errorText.textContent = error.message;
   });

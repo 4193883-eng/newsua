@@ -4,6 +4,8 @@ import "./styles/footer.scss";
 import "./styles/navbar.scss";
 import axios from "axios";
 
+const errorText = document.querySelector(".error");
+
 const searchParam = new URLSearchParams(location.search);
 console.log(searchParam.get("id"));
 
@@ -27,11 +29,6 @@ axios
     items.body.innerHTML = page.body;
     console.log(res.data.items);
   })
-  .catch((err) => {
-    if (err.response) {
-      console.log(err.response.data);
-      console.log(err.response.status);
-    } else if (err.request) {
-      console.log(err.request);
-    }
+  .catch((error) => {
+    errorText.textContent = error.message;
   });

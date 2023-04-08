@@ -5,14 +5,15 @@ export function addSlide(
     id,
     storyName,
     tags,
-    timeago, slideHbs){
+    timeago, slideHbs, thumbnailUrl){
 
     document.querySelector('.glider').insertAdjacentHTML('beforeend',slideHbs({
         views:views,
         id:id,
         storyName:storyName,
         tags:tags,
-        timeago:timeago
+        timeago:timeago,
+        thumbnailUrl
     }))
 }
 

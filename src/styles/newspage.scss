@@ -23,6 +23,7 @@ li {
   position: relative;
   padding: 0 0px;
   margin-top: 10px;
+  background-size: contain;
 }
 
 .prev_content {
@@ -117,4 +118,8 @@ li {
   font-weight: 500;
   font-size: 50px;
   color: red;
+}
+
+.list--info{
+  width: 100%;
 }

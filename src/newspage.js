@@ -5,6 +5,8 @@ import "./styles/navbar.scss";
 import "./scripts/ad";
 import axios from "axios";
 
+import {toggleMenu} from './scripts/navbar';
+toggleMenu()
 const errorText = document.querySelector(".error");
 
 const searchParam = new URLSearchParams(location.search);
@@ -23,7 +25,7 @@ axios
       body: document.querySelector(".text--info"),
     };
     const page = res.data;
-    items.bgimg.style.background = `url(${page.thumbnailUrl}) no-repeat center`;
+    items.bgimg.style.background = `url(${page.thumbnailUrl}) no-repeat center/contain`;
     items.prevTitle.innerHTML = page.title;
     items.author.innerHTML = page.author;
     items.views.innerHTML = `${page.views} views`;

@@ -1,4 +1,5 @@
 import './styles/newscard.scss';
+import "./scripts/navbar";
 import newscard from './partials/newscard.hbs';
 
 let url = "https://news-ua-api.onrender.com/api/posts";

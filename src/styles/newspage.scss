@@ -14,7 +14,7 @@ li {
 }
 
 .prev {
-  height: 379px;
+  min-height: 379px;
   color: white;
   border-radius: 10px;
   max-width: 1392px;
@@ -95,6 +95,10 @@ li {
   }
 }
 
+.list--info{
+  width: 100%;
+}
+
 .text--info {
   font-family: "Poppins";
   font-style: normal;
@@ -103,6 +107,7 @@ li {
   line-height: 30px;
 
   color: #000000;
+  width: 100%;
 }
 
 .advert {

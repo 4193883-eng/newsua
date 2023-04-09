@@ -3,6 +3,7 @@ import "./styles/ad.scss";
 import "./styles/footer.scss";
 import "./styles/navbar.scss";
 import "./scripts/ad";
+import "./scripts/navbar";
 import axios from "axios";
 
 import { toggleMenu } from "./scripts/navbar";

@@ -2,6 +2,8 @@ import axios from 'axios';
 import './styles/modal.scss';
 import './styles/admin.scss';
 import tableRow from './partials/table_row.hbs';
+import "./scripts/navbar";
+import "./styles/navbar.scss"
 import { openModal, closeModal, fetchById } from './scripts/toggleModal';
 
 // Vars
